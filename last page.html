@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAMITE - Launching Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #ff3b3b;
+            font-size: 2.5rem;
+        }
+        #countdown {
+            font-size: 1.8rem;
+            margin: 20px 0;
+        }
+        .contact, .ads {
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .contact {
+            background: rgba(255, 59, 59, 0.2);
+        }
+        .contact a {
+            color: #ff3b3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .ads {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            #countdown {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>GRAMITE is Launching Soon!</h1>
+    <p>We are working hard to bring you the best social platform.</p>
+    <p>Expected Launch Date: <strong>August 22, 2025</strong></p>
+    <div id="countdown"></div>
+    
+    <h2>Stay Connected</h2>
+    <div class="contact">
+        <p>Contact us for inquiries or collaborations:</p>
+        <p>Email: <a href="mailto:kalekoketso@gmail.com">kalekoketso@gmail.com</a></p>
+        <p>Follow us on social media:</p>
+        <p>
+            <a href="https://www.facebook.com/GRAMITE">Facebook (GRAMITE)</a> | 
+            <a href="https://www.twitter.com/GRAMITE">Twitter (GRAMITE)</a> | 
+            <a href="https://www.instagram.com/GRAMITE">Instagram (GRAMITE)</a>
+        </p>
+    </div>
+    
+    <div class="ads">
+        <h2>Advertisement</h2>
+        <p>Your Ad Here! Contact us for ad placement.</p>
+        <!-- You can integrate Google AdSense or any ad network script here -->
+        <script>
+            // Example ad script placeholder
+            document.write('<p style="color: yellow;">Ad Space Available</p>');
+        </script>
+    </div>
+    
+    <script>
+        function updateCountdown() {
+            const launchDate = new Date("August 22, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerHTML = 
+                `<strong>${days}</strong> Days | <strong>${hours}</strong> Hours | 
+                <strong>${minutes}</strong> Minutes | <strong>${seconds}</strong> Seconds`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
