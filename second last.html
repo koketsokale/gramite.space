@@ -22,7 +22,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         h1 {
             color: #ff3b3b;
@@ -75,6 +75,49 @@
             color: #ff3b3b;
             font-size: 1.5rem;
         }
+
+        /* Cookie Consent Popup */
+        .cookie-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border: 1px solid #ff3b3b;
+            border-radius: 10px;
+            display: none;
+            z-index: 9999;
+        }
+        .cookie-popup p {
+            margin-bottom: 10px;
+        }
+        .cookie-popup button {
+            background-color: #ff3b3b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            width: 100%;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #ff3b3b;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -86,9 +129,10 @@
     </style>
 </head>
 <body>
+
     <h1>Welcome to GRAMITE - The Advanced Social Platform</h1>
     <p>Powered by APEXIANS, GRAMITE offers a more advanced and revolutionary experience in social networking.</p>
-    
+
     <div class="feature-section">
         <h2>Key Features of GRAMITE:</h2>
         <ul>
@@ -99,27 +143,60 @@
             <li><strong>Innovative Groups:</strong> Join or create groups for every interest, with custom features tailored for collaboration.</li>
             <li><strong>Exclusive Music Integration:</strong> Stream, download, and share music in one place.</li>
             <li><strong>Live Streaming:</strong> Broadcast live to your followers with enhanced streaming options.</li>
+            <li><strong>AI Emotion Recognition:</strong> Smart detection of user mood to tailor content suggestions and engagement tools.</li>
+            <li><strong>Voice-Activated Navigation:</strong> Fully voice-controlled interface for hands-free social interaction.</li>
+            <li><strong>NFT Profile Customization:</strong> Users can design and sell their profile themes as NFTs, unlocking exclusive experiences.</li>
+            <li><strong>Micro-Subscription Content:</strong> Enable creators to charge small recurring payments for premium content or advice.</li>
+            <li><strong>Dynamic Reputation System:</strong> A real-time trust score based on user interactions, contributions, and community feedback.</li>
+            <li><strong>Offline Social Mode:</strong> Interact with nearby users via local P2P mode even without internet access.</li>
         </ul>
 
         <!-- Ads Section -->
         <div class="ads">
             <h3>Advertisement</h3>
-            <p> Contact us for ads placement or inquiries.</p>
-            <!-- You can place an ad script here -->
+            <p>Contact us for ads placement or inquiries.</p>
             <script>
-                // Example placeholder for an ad script
                 document.write('<p style="color: yellow;">Ad Space Available</p>');
             </script>
         </div>
-        
-        <a href="E:\program.py\ads files\third last.html"class="btn">Learn More</a>
+
+        <a href="E:\program.py\ads files\third last.html" class="btn">Learn More</a>
     </div>
 
     <div class="more-info" id="moreInfo">
         <h2>This page is more Advance</h2>
         <p>GRAMITE by APEXIANS pushes the boundaries of what a social platform can do. GRAMITE integrates cutting-edge features such as AI-driven content, immersive AR, music integration, and more, to provide a truly unique experience.</p>
-        <a href="https://www.apezians.com" class="btn">Visit APEXIANS Official Website</a>
     </div>
+
+    <!-- Cookie Consent Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <p>This website uses cookies to enhance your experience. By continuing to use GRAMITE, you agree to our use of cookies, privacy policy, and terms of service.</p>
+        <button onclick="acceptCookies()">Allow All Cookies</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 GRAMITE. All rights reserved.</p>
+        <p>
+            <a href="E:\program.py\ads files\terms and conditions.html">Terms & Conditions</a> |
+            <a href="E:\program.py\ads files\policy.html">Privacy Policy</a> |
+            <a href="E:\program.py\ads files\contact us.html">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        // Show the cookie popup on page load
+        window.onload = function () {
+            if (!localStorage.getItem("cookiesAccepted")) {
+                document.getElementById("cookiePopup").style.display = "block";
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookiePopup").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
