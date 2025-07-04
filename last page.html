@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRAMITE - Launching Soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -26,7 +23,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     h1 {
@@ -95,7 +92,7 @@
   <div id="countdown"></div>
 
   <div class="download-btn">
-    <a href="E:\william\GRAMITE PROJECT PLAN.pdf" download>
+    <a href="/files/GRAMITE_PROJECT_PLAN.pdf" download>
       Download GRAMITE Project Plan (PDF)
     </a>
   </div>
@@ -106,19 +103,16 @@
     <p>Email: <a href="mailto:kalekoketso7@gmail.com">kalekoketso7@gmail.com</a></p>
     <p>Follow us on social media:</p>
     <p>
-      <a href="https://www.facebook.com/GRAMITE">Facebook (GRAMITE)</a> |
-      <a href="https://www.twitter.com/GRAMITE">Twitter (GRAMITE)</a> |
-      <a href="https://www.instagram.com/GRAMITE">Instagram (GRAMITE)</a>
+      <a href="https://www.facebook.com/GRAMITE">Facebook</a> |
+      <a href="https://www.twitter.com/GRAMITE">Twitter</a> |
+      <a href="https://www.instagram.com/GRAMITE">Instagram</a>
     </p>
   </div>
 
   <div class="ads">
     <h2>Advertisement</h2>
     <p>Your Ad Here! Contact us for ad placement.</p>
-    <script>
-      // Example ad script placeholder
-      document.write('<p style="color: yellow;">Ad Space Available</p>');
-    </script>
+    <p style="color: yellow;">Ad Space Available</p>
   </div>
 
   <script>
@@ -136,58 +130,9 @@
         `<strong>${days}</strong> Days | <strong>${hours}</strong> Hours | 
         <strong>${minutes}</strong> Minutes | <strong>${seconds}</strong> Seconds`;
     }
+
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
-
-  <!-- Ads script -->
-  <script type="text/javascript" data-cfasync="false">
-    (function () {
-      var t = window,
-        z = "da756326bf0914baabd6e6916ae465d1",
-        g = [
-          ["siteId", 789 * 243 - 882 + 502 * 174 + 4934915],
-          ["minBid", 0],
-          ["popundersPerIP", "0"],
-          ["delayBetween", 0],
-          ["default", false],
-          ["defaultPerDay", 0],
-          ["topmostLayer", "auto"],
-        ],
-        u = [
-          "d3d3LmludGVsbGlnZW5jZWFkeC5jb20vamJvYmEubWluLmNzcw==",
-          "ZDJrbHg4N2Jnem5nY2UuY2xvdWRmcm9udC5uZXQvcXcvaWJvb3RzdHJhcC1lZGl0YWJsZS5taW4uanM=",
-        ],
-        v = -1,
-        c,
-        e,
-        i = function () {
-          clearTimeout(e);
-          v++;
-          if (u[v] && !(1777541130000 < new Date().getTime() && v > 1)) {
-            c = t.document.createElement("script");
-            c.type = "text/javascript";
-            c.async = true;
-            var j = t.document.getElementsByTagName("script")[0];
-            c.src = "https://" + atob(u[v]);
-            c.crossOrigin = "anonymous";
-            c.onerror = i;
-            c.onload = function () {
-              clearTimeout(e);
-              t[z.slice(0, 16) + z.slice(0, 16)] || i();
-            };
-            e = setTimeout(i, 5000);
-            j.parentNode.insertBefore(c, j);
-          }
-        };
-      if (!t[z]) {
-        try {
-          Object.freeze((t[z] = g));
-        } catch (e) {}
-        i();
-      }
-    })();
-  </script>
 </body>
 </html>
-
