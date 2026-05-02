@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gramite | Apology Protocol — Launching Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 30% 10%, #050a14, #010101);
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* futuristic animated mesh + grid overlay */
+    .grid-mesh {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        repeating-linear-gradient(transparent 0px, rgba(0, 230, 255, 0.02) 1px, transparent 2px, transparent 40px),
+        repeating-linear-gradient(90deg, transparent 0px, rgba(0, 230, 255, 0.02) 1px, transparent 2px, transparent 40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-radial-gradient(circle at 20% 40%, rgba(0, 10, 20, 0.3), #0000001a 2px);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* main card - fully responsive, fits all screens */
+    .apology-container {
+      position: relative;
+      z-index: 10;
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(8, 18, 28, 0.65);
+      backdrop-filter: blur(18px);
+      border-radius: 2.5rem;
+      border: 1px solid rgba(0, 255, 255, 0.35);
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 255, 255, 0.2) inset, 0 0 32px rgba(0, 210, 255, 0.25);
+      padding: 2.2rem 2rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    @media (max-width: 600px) {
+      .apology-container {
+        padding: 1.5rem 1.3rem;
+        border-radius: 1.8rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .apology-container {
+        padding: 1.2rem 1rem;
+      }
+    }
+
+    .apology-container:hover {
+      box-shadow: 0 35px 60px rgba(0, 0, 0, 0.7), 0 0 0 1.5px rgba(0, 255, 255, 0.45) inset, 0 0 40px rgba(0, 210, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* gramite brand */
+    .brand-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      border-bottom: 1px dashed rgba(0, 255, 255, 0.45);
+      padding-bottom: 1rem;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .glyph {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(125deg, #aaffff, #2dd4ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .brand-name {
+      font-size: 1.9rem;
+      font-weight: 750;
+      background: linear-gradient(135deg, #ffffff, #88e0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .status-chip {
+      background: rgba(0, 210, 255, 0.18);
+      border-radius: 60px;
+      padding: 0.25rem 1.1rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border: 0.6px solid cyan;
+      color: #a0f5ff;
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+    }
+
+    /* apology headline */
+    .apology-headline {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0.8rem 0 0.5rem;
+      background: linear-gradient(145deg, #F0FCFF, #7ac7ff, #b3f0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @media (max-width: 550px) {
+      .apology-headline {
+        font-size: 2.2rem;
+      }
+      .brand-name {
+        font-size: 1.4rem;
+      }
+      .glyph {
+        font-size: 1.5rem;
+      }
+    }
+
+    .subtle-glitch {
+      font-size: 1rem;
+      color: #bbecff;
+      border-left: 3px solid #0ff;
+      padding-left: 1rem;
+      margin: 1rem 0 1.2rem 0;
+      background: linear-gradient(90deg, rgba(0, 255, 255, 0.08), transparent);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .message-box {
+      font-size: 1rem;
+      color: #d3eaff;
+      margin: 1.5rem 0;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    /* launch soon capsule */
+    .launch-pod {
+      background: rgba(0, 28, 36, 0.7);
+      border-radius: 1.8rem;
+      padding: 1.3rem 1.5rem;
+      margin: 1.8rem 0;
+      border: 1px solid rgba(0, 200, 255, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .flex-launch {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 0.8rem;
+    }
+
+    .launch-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, cyan, #86f7ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .pulse-tag {
+      background: rgba(0, 255, 255, 0.25);
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #0ff;
+      text-shadow: 0 0 6px cyan;
+      animation: softPulse 1.6s infinite;
+    }
+
+    @keyframes softPulse {
+      0% { opacity: 0.7; box-shadow: 0 0 0px rgba(0,255,255,0.2);}
+      50% { opacity: 1; box-shadow: 0 0 12px rgba(0,255,255,0.6);}
+      100% { opacity: 0.7; box-shadow: 0 0 0px rgba(0,255,255,0.2);}
+    }
+
+    .progress-rail {
+      background: #001e26;
+      border-radius: 60px;
+      height: 8px;
+      width: 100%;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+
+    .fill-bar {
+      width: 82%;
+      height: 100%;
+      background: linear-gradient(90deg, #0cf, #2b9aff, #0cf);
+      border-radius: 60px;
+      background-size: 200% auto;
+      animation: shimmerMove 2s infinite linear;
+    }
+
+    @keyframes shimmerMove {
+      0% { background-position: 0% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .eta-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      font-family: monospace;
+      font-size: 0.75rem;
+    }
+
+    .eta-chip {
+      background: #05161f;
+      border-radius: 26px;
+      padding: 0.2rem 1rem;
+      border: 0.5px solid cyan;
+      color: #0cf;
+    }
+
+    .lunch-soon-sign {
+      margin-top: 1rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #bbf0ff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .highlight {
+      background: rgba(0, 255, 255, 0.2);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+
+    /* signature + name */
+    .signature-area {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid rgba(0, 255, 255, 0.35);
+      padding-top: 1.4rem;
+    }
+
+    .apology-footnote {
+      font-size: 0.8rem;
+      color: #7baacf;
+      font-style: italic;
+    }
+
+    .my-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: linear-gradient(145deg, #FFFFFF, #aaf0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .my-name::after {
+      content: "⚡";
+      font-size: 1rem;
+      background: none;
+      -webkit-background-clip: unset;
+      color: cyan;
+    }
+
+    .name-title {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #6dd5ff;
+      letter-spacing: 0.3px;
+    }
+
+    /* tiny floating particles safe */
+    .particle {
+      position: fixed;
+      background: rgba(0, 220, 255, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(1px);
+      animation: driftParticles 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes driftParticles {
+      0% { transform: translateY(0px) translateX(0px); opacity: 0.5;}
+      100% { transform: translateY(-50px) translateX(25px); opacity: 0;}
+    }
+
+    /* ensures everything fits perfectly without overflow */
+    img, svg, .apology-container, body {
+      max-width: 100%;
+    }
+
+    button, a {
+      cursor: default;
+    }
+
+    code {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+<div class="grid-mesh"></div>
+<div class="noise-overlay"></div>
+
+<!-- animated particles for futuristic feel -->
+<script>
+  (function initParticles() {
+    const particleCount = 30;
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      const size = Math.random() * 6 + 2;
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.top = `${Math.random() * 100}%`;
+      p.style.animationDelay = `${Math.random() * 10}s`;
+      p.style.animationDuration = `${Math.random() * 7 + 5}s`;
+      p.style.opacity = Math.random() * 0.5 + 0.15;
+      document.body.appendChild(p);
+    }
+  })();
+</script>
+
+<div class="apology-container">
+  <div class="brand-row">
+    <div class="logo-group">
+      <span class="glyph">⟁ gramite</span>
+      <span class="brand-name">core//nexus</span>
+    </div>
+    <div class="status-chip">⨀ apology protocol v2.0</div>
+  </div>
+
+  <div>
+    <h1 class="apology-headline">delay signal:<br>we're deeply sorry</h1>
+    <div class="subtle-glitch">
+      ⚡ TRANSMISSION: Gramite launch timeline adjusted — fine-tuning dimensional engines.
+    </div>
+    <div class="message-box">
+      We hear you. The anticipation, the wait — you deserve nothing less than a flawless breakthrough. 
+      The truth is, we pushed the boundaries so far that reality needed a few extra cycles to catch up. 
+      Our quantum-inspired architecture needed refinement, stability had to be absolute, and every edge 
+      polished. No excuses, only accountability. We delayed so your first experience with Gramite feels 
+      like a leap into tomorrow. Thank you for standing with us.
+    </div>
+  </div>
+
+  <!-- launch imminent + "lunch soon" announcement -->
+  <div class="launch-pod">
+    <div class="flex-launch">
+      <span class="launch-title">⏣ final countdown</span>
+      <span class="pulse-tag">⟳ launch imminent</span>
+    </div>
+    <div class="progress-rail">
+      <div class="fill-bar"></div>
+    </div>
+    <div class="eta-stack">
+      <span class="eta-chip">🛸 core systems: 98%</span>
+      <span class="eta-chip">🌀 neural sync: verified</span>
+      <span class="eta-chip">✨ stability: edge++</span>
+    </div>
+    <div class="lunch-soon-sign">
+      <span>🍱 <strong>“it will lunch soon”</strong> — yes, we're serving the future.</span>
+      <span class="highlight">launch window: days away</span>
+    </div>
+  </div>
+
+  <!-- signature with my name: Koketso Kale -->
+  <div class="signature-area">
+    <div class="apology-footnote">
+      // transparency over silence — we rise together.
+    </div>
+    <div>
+      <span class="my-name">Koketso Kale</span>
+      <span class="name-title"> — gramite, lead architect</span>
+    </div>
+  </div>
+
+  <!-- micro moniker & futuristic assurance -->
+  <div style="margin-top: 1.2rem; font-size: 0.7rem; text-align: center; color: #2f7f9f; font-family: monospace; opacity: 0.8;">
+    <span>>_ gramite.apology.delay() // "for those who wait, we engineer galaxies"</span>
+  </div>
+</div>
+
+<script>
+  // additional micro-interaction for console style grace
+  (function() {
+    console.log("%c✨ GRAMITE :: Apology protocol active — Koketso Kale, lead architect ✨", "color: #0cf; font-size: 13px; font-family: monospace; font-weight: bold;");
+    console.log("%c[system] delay acknowledged. Launch sequence greenlit — lunch soon.", "color: #88ddff;");
+    const pulse = document.querySelector('.pulse-tag');
+    if(pulse) {
+      pulse.addEventListener('mouseenter', () => {
+        pulse.style.transform = 'scale(1.02)';
+        pulse.style.transition = '0.15s';
+      });
+      pulse.addEventListener('mouseleave', () => {
+        pulse.style.transform = 'scale(1)';
+      });
+    }
+    // make sure no overflow glitches on small screens
+    const checkContainer = () => {
+      const container = document.querySelector('.apology-container');
+      if(container && window.innerWidth < 380) {
+        container.style.padding = '1rem';
+      } else if(container) {
+        container.style.padding = '';
+      }
+    };
+    window.addEventListener('resize', checkContainer);
+    checkContainer();
+  })();
+</script>
+</body>
+</html>
+```
